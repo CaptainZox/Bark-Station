@@ -167,7 +167,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
 
-            _serverCur.ClientBalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
+            _serverCur.ClientBalanceChange += UpdatePlayerBalance; // Goobstation - Bark Coin
         }
 
         protected override void Shutdown()
@@ -178,7 +178,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
             _contentAudioSystem.LobbySoundtrackChanged -= UpdateLobbySoundtrackInfo;
-            _serverCur.ClientBalanceChange -= UpdatePlayerBalance; // Goobstation - Goob Coin
+            _serverCur.ClientBalanceChange -= UpdatePlayerBalance; // Goobstation - Bark Coin
 
             _voteManager.ClearPopupContainer();
 
@@ -302,7 +302,7 @@ namespace Content.Client.Lobby
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
 
-            UpdatePlayerBalance(); // Goobstation - Goob Coin
+            UpdatePlayerBalance(); // Goobstation - Bark Coin
 
             var minutesToday = _playtimeTracking.PlaytimeMinutesToday;
             if (minutesToday > 60)
@@ -394,7 +394,7 @@ namespace Content.Client.Lobby
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
         }
 
-        private void UpdatePlayerBalance() // Goobstation - Goob Coin
+        private void UpdatePlayerBalance() // Goobstation - Bark Coin
         {
             Lobby!.Balance.Text = _serverCur.Stringify(_serverCur.GetBalance());
         }
